@@ -37,6 +37,7 @@ async function init() {
       store: MongoStore.create({ mongoUrl: process.env.MONGOOSE_URI }),
     })
   );
+  app.set("trust proxy", 1);
 
   app.use(passport.initialize());
   app.use(passport.session());
