@@ -33,12 +33,13 @@ const Navbar = () => {
     <nav className="flex justify-between items-center p-4 bg-gray-100 border-b border-gray-300 px-10">
       <div className="text-lg font-bold text-black">Text Eazy</div>
       <div className="flex items-center relative">
-        <Link to="/home" className="mr-4 text-blue-500 hover:underline">
+        <Link
+          to="/dashboard/home"
+          className="mr-4 text-blue-500 hover:underline"
+        >
           Home
         </Link>
-        <Link to="/docId" className="mr-4 text-blue-500 hover:underline">
-          Editor
-        </Link>
+
         {user && (
           <div className="relative group">
             <a href="#" className="w-4 h-4 rounded-full overflow-hidden">
