@@ -31,7 +31,7 @@ async function init() {
       saveUninitialized: false,
       cookie: {
         secure: process.env.NODE_ENV === "production",
-        httpOnly: false,
+        httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000,
       },
       store: MongoStore.create({ mongoUrl: process.env.MONGOOSE_URI }),
