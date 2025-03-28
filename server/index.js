@@ -16,7 +16,12 @@ const PORT = process.env.PORT || 3000;
 async function init() {
   await connectMongo();
 
-  app.use(cors({ origin: "http://localhost:5173", credentials: true }));
+  app.use(
+    cors({
+      origin: ["http://localhost:5173", "https://texteazy.onrender.com"],
+      credentials: true,
+    })
+  );
   app.use(express.json());
 
   app.use(
@@ -25,7 +30,7 @@ async function init() {
       resave: false,
       saveUninitialized: false,
       cookie: {
-        secure: false,
+        secure: process.env.NODE_ENV === "production",
         httpOnly: true,
         maxAge: 24 * 60 * 60 * 1000,
       },
