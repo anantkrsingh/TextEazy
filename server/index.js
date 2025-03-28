@@ -23,7 +23,7 @@ async function init() {
     })
   );
   app.use(express.json());
-
+  app.set("trust proxy", 1);
   app.use(
     session({
       secret: process.env.SESSION_SECRET,
@@ -39,7 +39,7 @@ async function init() {
       store: MongoStore.create({ mongoUrl: process.env.MONGOOSE_URI }),
     })
   );
-  app.set("trust proxy", 1);
+  
 
   app.use(passport.initialize());
   app.use(passport.session());
