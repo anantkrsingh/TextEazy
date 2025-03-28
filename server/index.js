@@ -18,7 +18,7 @@ async function init() {
 
   app.use(
     cors({
-      origin: ["http://localhost:5173", "https://texteazy.onrender.com"],
+      origin: ["http://localhost:5173", "https://texteazy.vercel.app"],
       credentials: true,
     })
   );
