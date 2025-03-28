@@ -16,7 +16,7 @@ router.get(
   "/google/callback",
   passport.authenticate("google", { failureRedirect: "/login" }),
   (req, res) => {
-    res.redirect("http://localhost:5173/dashboard/home");
+    res.redirect("https://texteazy.vercel.app/dashboard/home");
   }
 );
 
@@ -24,7 +24,7 @@ router.get("/logout", (req, res) => {
   req.logout((err) => {
     if (err) return next(err);
     req.session.destroy(() => {
-      res.redirect("http://localhost:5173/login");
+      res.redirect("https://texteazy.vercel.app/login");
     });
   });
 });
@@ -33,7 +33,7 @@ router.get(
   "/home",
 
   (req, res) => {
-    res.redirect("http://localhost:5173/dashboard/home");
+    res.redirect("https://texteazy.vercel.app/dashboard/home");
   }
 );
 
