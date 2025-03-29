@@ -32,7 +32,7 @@ function LandingPage() {
         <span className="text-gray-700 text-xm font-bold tracking-tight">
           Introducing Online collaborative text editor
         </span>
-        <h1 className="text-black font-extrabold text-8xl relative">
+        <h1 className="text-black text-center font-extrabold text-8xl relative">
           Text Eazy
         </h1>
 
