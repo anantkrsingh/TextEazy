@@ -144,7 +144,7 @@ const Home = () => {
                     )}
                   </div>
 
-                  <div className="flex items-center gap-2 mb-4">
+                  {/* <div className="flex items-center gap-2 mb-4">
                     <input
                       type="checkbox"
                       id="saveToDrive"
@@ -155,7 +155,7 @@ const Home = () => {
                     <label htmlFor="saveToDrive" className="text-gray-700">
                       Save to Google Drive
                     </label>
-                  </div>
+                  </div> */}
 
                   <div className="flex justify-end gap-4">
                     <AlertDialog.Cancel asChild>
