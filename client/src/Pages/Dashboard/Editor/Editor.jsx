@@ -93,7 +93,11 @@ const Editor = () => {
   const [isSaving, setIsSaving] = useState(false);
   const [content, setContent] = useState("");
   const [editor, setEditor] = useState(null);
-  const [notification, setNotification] = useState({ open: false, message: "", severity: "success" });
+  const [notification, setNotification] = useState({
+    open: false,
+    message: "",
+    severity: "success",
+  });
 
   const initialConfig = {
     namespace: "MyEditor",
@@ -113,10 +117,18 @@ const Editor = () => {
     try {
       const response = await apiHelper.post(`/docs/saveToDrive/${docId}`);
       console.log(response);
-      setNotification({ open: true, message: "Document saved to Drive successfully!", severity: "success" });
+      setNotification({
+        open: true,
+        message: "Document saved to Drive successfully!",
+        severity: "success",
+      });
     } catch (error) {
       console.error(error);
-      setNotification({ open: true, message: "Failed to save document to Drive.", severity: "error" });
+      setNotification({
+        open: true,
+        message: "Failed to save document to Drive.",
+        severity: "error",
+      });
     } finally {
       setIsSaving(false);
     }

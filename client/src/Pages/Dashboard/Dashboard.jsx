@@ -3,9 +3,11 @@ import { Routes, Route, Link } from "react-router-dom";
 import apiHelper, { baseURL } from "../../utils/api";
 import Home from "./Home/Home";
 import Editor from "./Editor/Editor";
+import { CircularProgress } from "@mui/material";
 
 const Navbar = () => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchUserProfile = async () => {
@@ -18,12 +20,25 @@ const Navbar = () => {
           setUser(res.user);
         }
       } catch (err) {
-        console.error("Error fetching user:", err);
+        if (err?.code === "401") {
+          window.location.href = "/login";
+        }
+        console.error("Error fetching user:", err.code);
+      } finally {
+        setLoading(false);
       }
     };
 
     fetchUserProfile();
   }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <CircularProgress />
+      </div>
+    );
+  }
 
   const handleLogout = () => {
     window.open(`${baseURL}/auth/logout`, "_self");

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { Axios, AxiosError } from "axios";
 
 export const baseURL = "https://texteazy.onrender.com/api";
 
@@ -11,10 +11,12 @@ const apiHelper = {
         },
         withCredentials: true,
       });
+
       return response.data;
     } catch (error) {
-      throw new Error(
-        error.response?.data?.message || "Error occurred during GET request"
+      throw new AxiosError(
+        error.response?.data?.message || "Error occurred during GET request",
+        error.response?.status?.toString() || "UNKNOWN_ERROR"
       );
     }
   },
@@ -25,14 +27,14 @@ const apiHelper = {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
           "Content-Type": "application/json",
-          
         },
-        withCredentials:true
+        withCredentials: true,
       });
       return response.data;
     } catch (error) {
-      throw new Error(
-        error.response?.data?.message || "Error occurred during POST request"
+      throw new AxiosError(
+        error.response?.data?.message || "Error occurred during GET request",
+        error.response?.status?.toString() || "UNKNOWN_ERROR"
       );
     }
   },
@@ -46,8 +48,9 @@ const apiHelper = {
       });
       return response.data;
     } catch (error) {
-      throw new Error(
-        error.response?.data?.message || "Error occurred during PUT request"
+      throw new AxiosError(
+        error.response?.data?.message || "Error occurred during GET request",
+        error.response?.status?.toString() || "UNKNOWN_ERROR"
       );
     }
   },
@@ -61,8 +64,9 @@ const apiHelper = {
       });
       return response.data;
     } catch (error) {
-      throw new Error(
-        error.response?.data?.message || "Error occurred during DELETE request"
+      throw new AxiosError(
+        error.response?.data?.message || "Error occurred during GET request",
+        error.response?.status?.toString() || "UNKNOWN_ERROR"
       );
     }
   },

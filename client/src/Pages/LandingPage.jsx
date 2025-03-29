@@ -7,7 +7,14 @@ function LandingPage() {
   const navigate = useNavigate();
 
   const handleGetStarted = () => {
-    window.open(`${baseURL}/auth/home`, "_self");
+    const sid = document.cookie
+      .split("; ")
+      .find((row) => row.startsWith("sid="));
+    if (sid) {
+      navigate("/dashboard/home");
+    } else {
+      navigate("/login");
+    }
   };
 
   return (

@@ -1,12 +1,41 @@
-import React from "react";
-import { baseURL } from "../../utils/api";
+import React, { useEffect } from "react";
+import apiHelper, { baseURL } from "../../utils/api";
+import { CircularProgress } from "@mui/material";
 
 function Login() {
+  const [loading, setLoading] = React.useState(true);
+  const getUser = async () => {
+    try {
+      const res = await apiHelper.get(`/auth/user`, {
+        withCredentials: true,
+      });
+
+      if (res?.user) {
+        window.location.href = "/dashboard/home";
+      } else {
+      }
+    } catch (err) {
+      
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <CircularProgress />
+      </div>
+    );
+  }
+
   const handleLogin = () => {
     window.open(`${baseURL}/auth/google`, "_self");
   };
-
- 
 
   return (
     <div className="flex justify-center items-center h-screen">
