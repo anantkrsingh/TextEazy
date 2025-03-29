@@ -108,7 +108,7 @@ const Home = () => {
               <AlertDialog.Portal>
                 <AlertDialog.Overlay className="fixed inset-0 bg-black opacity-30" />
                 <AlertDialog.Content className="fixed left-1/2 top-1/2 max-h-[85vh] w-[90vw] max-w-[500px] -translate-x-1/2 -translate-y-1/2 rounded-md bg-white p-6 shadow-lg focus:outline-none">
-                  <Typography variant="h5" className="mb-4">
+                  <Typography variant="h5" className="mb-4 text-black">
                     Create New Document
                   </Typography>
 
